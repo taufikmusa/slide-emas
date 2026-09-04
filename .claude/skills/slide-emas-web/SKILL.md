@@ -112,6 +112,18 @@ index.html                   ← hub, senarai semua deck
 
 Pastikan `.nojekyll` wujud di root repo.
 
+### Domain
+
+Repo ini di-host atas **GitHub Pages** dan disambung ke `slide.taufik.fyi` melalui fail `CNAME`
+di root (isinya satu baris: `slide.taufik.fyi`). Jangan padam atau ubah fail itu — GitHub Pages
+menulis semula tetapan domain setiap kali ia hilang, dan butang Home dalam setiap deck menunjuk
+ke domain tersebut.
+
+Ambil perhatian ini **berlainan** daripada hab `taufik.fyi` dan subdomain `emas-epNN.taufik.fyi`,
+yang duduk atas Cloudflare Pages Direct Upload (rujuk skill `taufik-fyi-hub`). Di Cloudflare,
+fail `CNAME` tidak bermakna apa-apa — domain disambung melalui tab Custom domains. Jangan campur
+dua cara ini.
+
 **Dalam chat:** tulis fail ke `/mnt/user-data/outputs/` dan panggil `present_files`. Jangan paste HTML penuh dalam chat.
 
 ### Hub
