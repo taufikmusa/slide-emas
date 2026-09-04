@@ -2,8 +2,8 @@
 name: slide-emas-web
 description: >
   Hasilkan deck carousel 7 slaid gaya perbualan WhatsApp (Slide Emas By Taufik) sebagai SATU fail
-  HTML yang di-host — bersaiz menegak 9:16 (video TikTok), diswipe seperti laman web biasa dengan
-  bar navigasi di bawah, dan dihantar sebagai pautan hidup. Guna skill ini bila Taufik sebut "buat
+  HTML yang di-host — bersaiz menegak 4:5, diswipe seperti laman web biasa dengan bar navigasi di
+  bawah, dan dihantar sebagai pautan hidup. Guna skill ini bila Taufik sebut "buat
   slide emas", "carousel emas", "deck emas", "slide web", "slide emas web", "buat carousel untuk
   repo", atau bila dia paste pautan YouTube, artikel, atau idea mentah dan mahu ia jadi Q&A carousel
   emas. Skill ini TIADA fungsi muat naik gambar/thumbnail dan TIADA butang Save PNG, dan slaid CTA
@@ -17,7 +17,7 @@ description: >
 
 Deck carousel 7 slaid gaya perbualan WhatsApp untuk Taufik Bin Musa, Dealer Public Gold G100 Network (PG00359605). Satu fail HTML, di-host atas GitHub Pages, dibaca sebagai laman web hidup.
 
-Bentuknya **menegak 9:16** — nisbah yang sama dengan video TikTok/Reels. Pembaca swipe mendatar seperti laman web biasa, dan bar navigasi tetap di bawah skrin membawa butang **Home**, titik penunjuk, dan anak panah.
+Bentuknya **menegak 4:5** — nisbah carousel Instagram. Pembaca swipe mendatar seperti laman web biasa, dan bar navigasi tetap di bawah skrin membawa butang **Home**, titik penunjuk, dan anak panah.
 
 Beza dengan versi Gems lama: **tiada muat naik gambar** dan **tiada butang Save PNG** (kedua-duanya dibuang sepenuhnya), dan slaid CTA ada **tiga pautan boleh klik**.
 
@@ -47,7 +47,7 @@ Kalau ada fakta, sejarah, harga atau angka — sahkan dahulu. Jangan reka statis
 
 Jangan hasilkan lebih atau kurang daripada 7 melainkan Taufik minta jumlah lain. Kalau satu jawapan terlalu panjang, pecah kepada dua slaid — jangan biar teks terpotong.
 
-Ingat bentuk 9:16 lebih sempit daripada 4:5. Bubble panjang cepat penuh — kalau satu bubble melebihi kira-kira 45 patah perkataan, pecahkan.
+Kad 4:5 lebih pendek daripada bentuk menegak panjang, jadi ruang menegak yang cepat habis. Kalau satu bubble melebihi kira-kira 45 patah perkataan, pecahkan kepada slaid tambahan.
 
 ---
 
@@ -59,7 +59,7 @@ Yang boleh ditukar: teks dalam `.headline`, `.sub-text`, `.bubble-q`, `.bubble-a
 
 Yang **tidak boleh** disentuh:
 - Semua token warna, `background-image` grid putih, font Poppins
-- `aspect-ratio:9/16` dan pengiraan tinggi slaid
+- `aspect-ratio:4/5` dan pengiraan tinggi slaid
 - `container-type:inline-size` pada `.slide`, dan semua saiz font, padding serta gap dalam unit `cqw` — inilah yang buat seluruh slaid mengecut secara berkadar bersama kad
 - Jangan letak lantai `rem` dalam `clamp()` untuk saiz font (guna `min(Ncqw, Xrem)` sahaja). Lantai `rem` tak mengecut bila kad jadi kecil, dan teks akan terpotong bila telefon dipusing landscape
 - Struktur `.slide` / `.slide-content` / `.slide-footer`
@@ -69,7 +69,7 @@ Yang **tidak boleh** disentuh:
 
 Slaid 2–6 = ulang blok dialog lima kali dengan kandungan berbeza. Blok Deep Dive boleh guna satu `.bubble-a` besar sahaja tanpa `.bubble-q`.
 
-**Jangan tambah balik html2canvas, butang Save PNG, atau apa-apa muat naik gambar.** Deck ini dibaca sebagai laman web; kalau Taufik nak gambar untuk Instagram, dia screenshot sendiri — dan 9:16 memang sudah saiz Reels.
+**Jangan tambah balik html2canvas, butang Save PNG, atau apa-apa muat naik gambar.** Deck ini dibaca sebagai laman web; kalau Taufik nak gambar untuk Instagram, dia screenshot sendiri.
 
 ### Navigasi
 
@@ -154,7 +154,7 @@ Selepas HTML, sentiasa hasilkan caption berasaskan 7 slaid tadi. Dalam Claude Co
 ## Senarai semak sebelum hantar
 
 - [ ] Tepat 7 slaid
-- [ ] Nisbah `9/16` kekal, tiada scroll mendatar pada `<html>`
+- [ ] Nisbah `4/5` kekal, tiada scroll mendatar pada `<html>`
 - [ ] Bar nav bawah ada: Home ke `https://slide.taufik.fyi/`, titik, anak panah
 - [ ] Slaid CTA salinan tetap, tiga pautan utuh
 - [ ] `@taufik.pg` pada setiap slaid
@@ -200,33 +200,33 @@ html,body{margin:0;padding:0;height:100%;font-family:'Poppins',sans-serif;backgr
 .deck::-webkit-scrollbar{display:none}
 .slide-wrap{flex:0 0 100vw;height:calc(100dvh - var(--nav-h));display:flex;align-items:center;justify-content:center;scroll-snap-align:start}
 .slide{
-  height:min(96%, calc(94vw * 16 / 9));
-  aspect-ratio:9/16;max-width:94vw;
+  height:min(96%, calc(94vw * 5 / 4));
+  aspect-ratio:4/5;max-width:94vw;
   container-type:inline-size;
-  display:flex;flex-direction:column;padding:7cqw 6cqw;box-sizing:border-box;overflow:hidden;position:relative;
+  display:flex;flex-direction:column;padding:8.7cqw 6.5cqw;box-sizing:border-box;overflow:hidden;position:relative;
   background-color:var(--bg-base);
   background-image:linear-gradient(var(--grid-line) 1.5px, transparent 1.5px),linear-gradient(90deg, var(--grid-line) 1.5px, transparent 1.5px);
   background-size:35px 35px;background-position:center center;
   border-radius:14px;
 }
-.slide-content{flex:1;display:flex;flex-direction:column;justify-content:center;gap:3cqw;width:100%;min-height:0;position:relative;z-index:1}
-.slide-footer{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:1.6cqw;padding-top:3cqw;margin-top:auto;z-index:20}
-.headline{font-weight:800;color:var(--text-dark);font-size:min(9cqw,2.8rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 3cqw;text-align:left}
+.slide-content{flex:1;display:flex;flex-direction:column;justify-content:center;gap:4.4cqw;width:100%;min-height:0;position:relative;z-index:1}
+.slide-footer{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2.6cqw;padding-top:4.4cqw;margin-top:auto;z-index:20}
+.headline{font-weight:800;color:var(--text-dark);font-size:min(7.5cqw,2.6rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 4.4cqw;text-align:left}
 .headline .accent{background-color:var(--brand-lime);color:var(--text-dark);padding:0 min(2cqw,8px);border-radius:6px;display:inline-block;line-height:1.1;margin-top:5px}
-.sub-text{color:var(--text-muted);font-size:min(3.6cqw,1.05rem);line-height:1.5;margin:0}
-.bubble-q{align-self:flex-start;background:var(--card-white);border-radius:0 18px 18px 18px;padding:4cqw 5cqw;color:var(--text-dark);font-weight:600;font-size:min(4.4cqw,1.3rem);line-height:1.4;max-width:90%;box-shadow:0 3px 10px rgba(0,0,0,.04)}
-.bubble-a{align-self:flex-end;background:var(--brand-purple);border-radius:18px 0 18px 18px;padding:4cqw 5cqw;color:#fff;font-weight:400;font-size:min(4.1cqw,1.2rem);line-height:1.5;max-width:90%;box-shadow:0 4px 15px rgba(90,62,224,.2)}
-.counter-pill{background:var(--card-white);border:1px solid rgba(0,0,0,.05);color:var(--text-dark);font-weight:700;padding:.8cqw 2.4cqw;border-radius:999px;font-size:min(3cqw,.75rem);box-shadow:0 2px 10px rgba(0,0,0,.02)}
-.swipe-pill{display:inline-flex;align-items:center;gap:.4rem;background:var(--brand-lime);color:var(--text-dark);font-weight:800;font-size:min(2.6cqw,.65rem);padding:.8cqw 2.4cqw;border-radius:999px;text-transform:uppercase}
-.card-handle{display:inline-block;font-weight:600;font-size:min(2.8cqw,.7rem);color:var(--text-muted)}
-.cta-quote{font-style:italic;color:var(--text-dark);font-size:min(3.8cqw,1.1rem);line-height:1.6;margin:1.5cqw 0 3.5cqw;padding-left:2.5cqw;border-left:3px solid var(--brand-lime)}
-.cta-links{display:flex;flex-direction:column;gap:1.6cqw;width:100%}
-.cta-btn{display:flex;align-items:center;justify-content:center;gap:1.4cqw;text-decoration:none;font-weight:700;font-size:min(3.6cqw,1rem);padding:2.4cqw 2.8cqw;border-radius:12px;transition:transform .1s}
+.sub-text{color:var(--text-muted);font-size:min(4.15cqw,1.05rem);line-height:1.5;margin:0}
+.bubble-q{align-self:flex-start;background:var(--card-white);border-radius:0 18px 18px 18px;padding:5.2cqw 6.5cqw;color:var(--text-dark);font-weight:600;font-size:min(4.8cqw,1.25rem);line-height:1.4;max-width:88%;box-shadow:0 3px 10px rgba(0,0,0,.04)}
+.bubble-a{align-self:flex-end;background:var(--brand-purple);border-radius:18px 0 18px 18px;padding:5.2cqw 6.5cqw;color:#fff;font-weight:400;font-size:min(4.6cqw,1.2rem);line-height:1.5;max-width:88%;box-shadow:0 4px 15px rgba(90,62,224,.2)}
+.counter-pill{background:var(--card-white);border:1px solid rgba(0,0,0,.05);color:var(--text-dark);font-weight:700;padding:1.3cqw 3.9cqw;border-radius:999px;font-size:min(3.3cqw,.75rem);box-shadow:0 2px 10px rgba(0,0,0,.02)}
+.swipe-pill{display:inline-flex;align-items:center;gap:.4rem;background:var(--brand-lime);color:var(--text-dark);font-weight:800;font-size:min(2.8cqw,.65rem);padding:1.3cqw 3.9cqw;border-radius:999px;text-transform:uppercase}
+.card-handle{display:inline-block;font-weight:600;font-size:min(3.05cqw,.7rem);color:var(--text-muted)}
+.cta-quote{font-style:italic;color:var(--text-dark);font-size:min(4.4cqw,1.1rem);line-height:1.6;margin:2.2cqw 0 4.2cqw;padding-left:3.9cqw;border-left:3px solid var(--brand-lime)}
+.cta-links{display:flex;flex-direction:column;gap:2.6cqw;width:100%}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:2.2cqw;text-decoration:none;font-weight:700;font-size:min(3.9cqw,1rem);padding:3.4cqw 4.4cqw;border-radius:12px;transition:transform .1s}
 .cta-btn:active{transform:scale(.98)}
 .cta-wa{background:#25D366;color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.3)}
 .cta-web{background:var(--brand-purple);color:#fff;box-shadow:0 4px 14px rgba(90,62,224,.25)}
 .cta-alt{background:var(--card-white);color:var(--text-dark);border:1.5px solid rgba(0,0,0,.08)}
-.cta-follow{font-weight:800;color:var(--brand-purple);font-size:min(3.4cqw,.85rem);letter-spacing:.04em;text-align:center;margin-top:2.5cqw}
+.cta-follow{font-weight:800;color:var(--brand-purple);font-size:min(3.7cqw,.85rem);letter-spacing:.04em;text-align:center;margin-top:3cqw}
 
 /* --- NAV BAWAH --- */
 .deck-nav{position:fixed;left:0;right:0;bottom:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:0 clamp(.75rem,3vw,1.5rem);padding-bottom:env(safe-area-inset-bottom);background:rgba(17,17,17,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.07);z-index:50}
