@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Step Bermula Simpan Emas | Slide Emas By Taufik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --brand-purple:#5A3EE0;
+  --brand-lime:#CEFE1D;
+  --brand-yellow:#FFCE32;
+  --bg-base:#EAEDF1;
+  --grid-line:#FFFFFF;
+  --card-white:#FFFFFF;
+  --text-dark:#111827;
+  --text-muted:#6B7280;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;font-family:'Poppins',sans-serif;background:#1a1a1a;overflow:hidden}
+.deck{display:flex;flex-direction:row;height:100dvh;overflow-x:scroll;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
+.deck::-webkit-scrollbar{display:none}
+.slide-wrap{flex:0 0 100vw;height:100dvh;display:flex;align-items:center;justify-content:center;scroll-snap-align:start}
+.slide{
+  width:min(94vw, calc(94dvh * 4 / 5));
+  aspect-ratio:4/5;max-width:94vw;max-height:94dvh;
+  display:flex;flex-direction:column;padding:2rem 1.5rem;box-sizing:border-box;overflow:hidden;position:relative;
+  background-color:var(--bg-base);
+  background-image:linear-gradient(var(--grid-line) 1.5px, transparent 1.5px),linear-gradient(90deg, var(--grid-line) 1.5px, transparent 1.5px);
+  background-size:35px 35px;background-position:center center;
+  border-radius:14px;
+}
+.slide-content{flex:1;display:flex;flex-direction:column;justify-content:center;gap:1rem;width:100%;min-height:0;position:relative;z-index:1}
+.slide-footer{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:.6rem;padding-top:1rem;margin-top:auto;z-index:20}
+.headline{font-weight:800;color:var(--text-dark);font-size:clamp(1.8rem,7vw,2.6rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 1rem;text-align:left}
+.headline .accent{background-color:var(--brand-lime);color:var(--text-dark);padding:0 8px;border-radius:6px;display:inline-block;line-height:1.1;margin-top:5px}
+.sub-text{color:var(--text-muted);font-size:.95rem;line-height:1.5;margin:0}
+.bubble-q{align-self:flex-start;background:var(--card-white);border-radius:0 18px 18px 18px;padding:1.2rem 1.5rem;color:var(--text-dark);font-weight:600;font-size:1.1rem;line-height:1.4;max-width:88%;box-shadow:0 3px 10px rgba(0,0,0,.04)}
+.bubble-a{align-self:flex-end;background:var(--brand-purple);border-radius:18px 0 18px 18px;padding:1.2rem 1.5rem;color:#fff;font-weight:400;font-size:1.05rem;line-height:1.5;max-width:88%;box-shadow:0 4px 15px rgba(90,62,224,.2)}
+.counter-pill{background:var(--card-white);border:1px solid rgba(0,0,0,.05);color:var(--text-dark);font-weight:700;padding:.3rem .9rem;border-radius:999px;font-size:.75rem;box-shadow:0 2px 10px rgba(0,0,0,.02)}
+.swipe-pill{display:inline-flex;align-items:center;gap:.4rem;background:var(--brand-lime);color:var(--text-dark);font-weight:800;font-size:.65rem;padding:.3rem .9rem;border-radius:999px;text-transform:uppercase}
+.card-handle{display:inline-block;font-weight:600;font-size:.7rem;color:var(--text-muted)}
+.cta-quote{font-style:italic;color:var(--text-dark);font-size:1rem;line-height:1.6;margin:.5rem 0 1.2rem;padding-left:.9rem;border-left:3px solid var(--brand-lime)}
+.cta-links{display:flex;flex-direction:column;gap:.6rem;width:100%}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;font-weight:700;font-size:.9rem;padding:.85rem 1rem;border-radius:12px;transition:transform .1s}
+.cta-btn:active{transform:scale(.98)}
+.cta-wa{background:#25D366;color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.3)}
+.cta-web{background:var(--brand-purple);color:#fff;box-shadow:0 4px 14px rgba(90,62,224,.25)}
+.cta-alt{background:var(--card-white);color:var(--text-dark);border:1.5px solid rgba(0,0,0,.08)}
+.cta-follow{font-weight:800;color:var(--brand-purple);font-size:.85rem;letter-spacing:.04em;text-align:center;margin-top:.9rem}
+.fab-save{position:fixed;bottom:24px;right:24px;background:var(--brand-purple);color:#fff;border:none;border-radius:999px;padding:12px 20px;font-family:'Poppins',sans-serif;font-weight:700;font-size:.9rem;box-shadow:0 4px 15px rgba(90,62,224,.4);cursor:pointer;z-index:9999;display:flex;align-items:center;gap:8px;transition:transform .1s ease}
+.fab-save:active{transform:scale(.95)}
+body.is-capturing .fab-save{opacity:0}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1 — HOOK -->
+  <div class="slide-wrap"><div class="slide">
+    <div class="slide-content">
+      <h1 class="headline">Nak mula simpan emas, tapi tak tahu <span class="accent">step pertama?</span></h1>
+      <p class="sub-text">Ramai tangguh bukan sebab tak mampu — sebab tak tahu nak mula dari mana. Ini prosesnya, habis dalam satu petang.</p>
+    </div>
+    <div class="slide-footer">
+      <span class="swipe-pill">Swipe →</span>
+      <span class="counter-pill"><span class="counter-current">1</span> / <span class="counter-total">7</span></span>
+      <span class="card-handle">@taufik.pg</span>
+    </div>
+  </div></div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide-wrap"><div class="slide">
+    <div class="slide-content">
+      <div class="bubble-q">Nak mula simpan emas ni kena kumpul berapa ribu dulu?</div>
+      <div class="bubble-a">Tak perlu ribu. Akaun GAP boleh mula dengan RM100 sahaja. Yang menentukan bukan besar mana permulaan, tapi bila kita mula.</div>
+    </div>
+    <div class="slide-footer">
+      <span class="swipe-pill">Swipe →</span>
+      <span class="counter-pill"><span class="counter-current">2</span> / <span class="counter-total">7</span></span>
+      <span class="card-handle">@taufik.pg</span>
+    </div>
+  </div></div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide-wrap"><div class="slide">
+    <div class="slide-content">
+      <div class="bubble-q">Prosesnya susah tak? Kena pergi kaunter ke?</div>
+      <div class="bubble-a">Semua dari telefon. Empat langkah je: Daftar → Sahkan akaun → Download app Public Gold → Buat pembelian pertama. Lepas tu akaun aktif.</div>
+    </div>
+    <div class="slide-footer">
+      <span class="swipe-pill">Swipe →</span>
+      <span class="counter-pill"><span class="counter-current">3</span> / <span class="counter-total">7</span></span>
+      <span class="card-handle">@taufik.pg</span>
+    </div>
+  </div></div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide-wrap"><div class="slide">
+    <div class="slide-content">
+      <div class="bubble-q">Bahagian daftar tu macam mana? Takut isi salah.</div>
+      <div class="bubble-a">Isi nama penuh ikut IC, jangan singkat. Lepas daftar, akaun sementara keluar — nombor IC tanpa dash jadi username. Link pengesahan masuk melalui SMS, klik sekali, akaun disahkan.</div>
+    </div>
+    <div class="slide-footer">
+      <span class="swipe-pill">Swipe →</span>
+      <span class="counter-pill"><span class="counter-current">4</span> / <span class="counter-total">7</span></span>
+      <span class="card-handle">@taufik.pg</span>
+    </div>
+  </div></div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide-wrap"><div class="slide">
+    <div class="slide-content">
+      <div class="bubble-q">Kalau emas disimpan dengan mereka, kena bayar sewa peti tak?</div>
+      <div class="bubble-a">Tidak. Simpanan percuma — tiada caj bulanan, tiada had masa, tiada had jumlah. Yuran premium hanya masuk bila kita nak tarik keluar dalam bentuk fizikal atau guna penghantaran berinsurans.</div>
+    </div>
+    <div class="slide-footer">
+      <span class="swipe-pill">Swipe →</span>
+      <span class="counter-pill"><span class="counter-current">5</span> / <span class="counter-total">7</span></span>
+      <span class="card-handle">@taufik.pg</span>
+    </div>
+  </div></div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide-wrap"><div class="slide">
+    <div class="slide-content">
+      <div class="bubble-q">Dalam app tu emas betul ke sekadar angka?</div>
+      <div class="bubble-a">Emas fizikal 999.9. Bila cukup, boleh tebus jadi jongkong bermula 0.5 gram dan pegang di tangan sendiri. Tiada komitmen bulanan wajib — tambah ikut kemampuan, bulan ini RM100, bulan depan berhenti pun tak apa.</div>
+    </div>
+    <div class="slide-footer">
+      <span class="swipe-pill">Swipe →</span>
+      <span class="counter-pill"><span class="counter-current">6</span> / <span class="counter-total">7</span></span>
+      <span class="card-handle">@taufik.pg</span>
+    </div>
+  </div></div>
+
+  <!-- SLIDE 7 — CTA (SALIN BULAT-BULAT, JANGAN UBAH PAUTAN) -->
+  <div class="slide-wrap"><div class="slide">
+    <div class="slide-content">
+      <h1 class="headline">Mula Simpan <span class="accent">Emas</span></h1>
+      <p class="cta-quote">"Ingat, kekayaan bukan tentang berapa besar gaji kita, tapi tentang berapa lama kita boleh bertahan bila gaji itu tiada."</p>
+      <div class="cta-links">
+        <a class="cta-btn cta-wa" href="https://wa.me/60132740711?text=Salam,%20boleh%20bantu%20saya%20simpan%20emas%20di%20Public%20Gold%20-%20Dari%20Slide" target="_blank" rel="noopener">WhatsApp Saya</a>
+        <a class="cta-btn cta-web" href="https://simpanemasfizikal.com/" target="_blank" rel="noopener">simpanemasfizikal.com</a>
+        <a class="cta-btn cta-alt" href="https://pg2u.my/taufikmusa" target="_blank" rel="noopener">Daftar Public Gold</a>
+      </div>
+      <p class="cta-follow">FOLLOW · LIKE · SHARE</p>
+    </div>
+    <div class="slide-footer">
+      <span class="counter-pill"><span class="counter-current">7</span> / <span class="counter-total">7</span></span>
+      <span class="card-handle">@taufik.pg</span>
+    </div>
+  </div></div>
+
+</div>
+
+<button id="save-btn" class="fab-save" onclick="simpanSlideSemasa()">📸 <span id="save-text">Save PNG</span></button>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const wraps = document.querySelectorAll('.slide-wrap');
+  const total = wraps.length;
+  wraps.forEach((w, i) => {
+    const cur = w.querySelector('.counter-current');
+    const tot = w.querySelector('.counter-total');
+    if (cur) cur.textContent = i + 1;
+    if (tot) tot.textContent = total;
+    if (i === total - 1) {
+      const sp = w.querySelector('.swipe-pill');
+      if (sp) sp.style.display = 'none';
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    const deck = document.getElementById('deck');
+    const idx = Math.round(deck.scrollLeft / wraps[0].offsetWidth);
+    if (e.key === 'ArrowRight' && idx < total - 1) wraps[idx + 1].scrollIntoView({behavior:'smooth'});
+    if (e.key === 'ArrowLeft' && idx > 0) wraps[idx - 1].scrollIntoView({behavior:'smooth'});
+  });
+});
+
+async function simpanSlideSemasa() {
+  const deck = document.getElementById('deck');
+  const wraps = document.querySelectorAll('.slide-wrap');
+  const slideWidth = wraps[0].offsetWidth;
+  const currentIndex = Math.round(deck.scrollLeft / slideWidth);
+  const slideAktif = wraps[currentIndex].querySelector('.slide');
+  const btn = document.getElementById("save-btn");
+  const btnText = document.getElementById("save-text");
+  const originalText = btnText.innerText;
+  btnText.innerText = "Saving...";
+  btn.style.pointerEvents = "none";
+  document.body.classList.add('is-capturing');
+  const reset = () => {
+    document.body.classList.remove('is-capturing');
+    btnText.innerText = originalText;
+    btn.style.pointerEvents = "auto";
+  };
+  try {
+    const canvas = await html2canvas(slideAktif, {
+      scale: 4,
+      backgroundColor: null,
+      useCORS: true,
+      allowTaint: true,
+      width: slideAktif.offsetWidth,
+      height: slideAktif.offsetHeight
+    });
+    canvas.toBlob(function(blob) {
+      if (!blob) { alert("Ops, gagal save."); reset(); return; }
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = 'Slide-Emas-' + (currentIndex + 1) + '.png';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }, 200);
+      reset();
+    }, 'image/png');
+  } catch (err) {
+    console.error(err);
+    alert("Ops, gagal save.");
+    reset();
+  }
+}
+</script>
+</body>
+</html>
